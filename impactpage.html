@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact | Restaurant Name & NGO Partnership</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #d35400;
+        }
+        
+        /* Impact Numbers */
+        .impact-numbers {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .impact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .impact-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .impact-item h3 {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin: 0;
+        }
+        
+        .impact-item p {
+            margin-top: 10px;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .mission-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .mission-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .mission-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .mission-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .programs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .program-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: #e67e22;
+            opacity: 0.3;
+        }
+        
+        .testimonial-content {
+            padding-left: 40px;
+        }
+        
+        .testimonial-author {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        /* Call to Action */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #e67e22;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #e67e22;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 0;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .impact-item, .program-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Making a Difference Together</h1>
+            <p>At [Restaurant Name], we believe in the power of food to bring people together and create positive change. Through our partnership with [NGO Name], we're committed to fighting hunger and building stronger communities.</p>
+            <a href="#get-involved" class="btn">Get Involved</a>
+        </div>
+    </header>
+    
+    <!-- Impact Numbers Section -->
+    <section class="impact-numbers">
+        <div class="container">
+            <h2>Our Impact by the Numbers</h2>
+            <p>Since starting our partnership in 2020, we've made a real difference in our community.</p>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h3>25,000+</h3>
+                    <p>Meals donated to families in need</p>
+                </div>
+                
+                <div class="impact-item">
+                    <h3>$75,000</h3>
+                    <p>Funds raised for community programs</p>
+                </div>
+                
+                <div class="impact-item">
+                    <h3>15</h3>
+                    <p>Local community gardens established</p>
+                </div>
+                
+                <div class="impact-item">
+                    <h3>1,200</h3>
+                    <p>Volunteer hours contributed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is simple but powerful: to use the universal language of food to create meaningful change in our community. We believe that everyone deserves access to nutritious meals and opportunities for growth.</p>
+                    <p>Through our partnership with [NGO Name], we've developed a sustainable model that allows us to give back while continuing to serve exceptional food to our customers. For every meal purchased, we donate a portion to those in need.</p>
+                    <p>But our work goes beyond just providing meals. We're committed to addressing the root causes of food insecurity through education, community development, and sustainable food practices.</p>
+                </div>
+                
+                <div class="mission-image">
+                    <img src="/api/placeholder/600/400" alt="Restaurant staff and NGO volunteers working together">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <p>We've developed several initiatives to address hunger and promote sustainable food practices in our community.</p>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <img src="/api/placeholder/400/200" alt="Meal donation program">
+                    <div class="program-content">
+                        <h3>Meal Donation Program</h3>
+                        <p>For every meal purchased at our restaurant, we donate one meal to a family in need through our local food bank network.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <img src="/api/placeholder/400/200" alt="Community Garden Initiative">
+                    <div class="program-content">
+                        <h3>Community Garden Initiative</h3>
+                        <p>We've helped establish 15 community gardens throughout the city, providing fresh produce and gardening education to underserved neighborhoods.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <img src="/api/placeholder/400/200" alt="Culinary Training Program">
+                    <div class="program-content">
+                        <h3>Culinary Training Program</h3>
+                        <p>Our chefs provide free culinary training to unemployed individuals, equipping them with skills for careers in the food service industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Stories of Impact</h2>
+            <p>Hear from those who have benefited from our programs.</p>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The community garden program has transformed our neighborhood. Not only do we have access to fresh vegetables, but it's brought our community together in ways we never expected. My children have learned so much about nutrition and where their food comes from."</p>
+                    
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="Maria Rodriguez">
+                        <div>
+                            <strong>Maria Rodriguez</strong>
+                            <p>Community Garden Participant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"After losing my job during the pandemic, the culinary training program gave me hope and a new direction. Today, I'm working as a sous chef at a local restaurant and can support my family again. I can't thank [Restaurant Name] and [NGO Name] enough for this opportunity."</p>
+                    
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="James Thompson">
+                        <div>
+                            <strong>James Thompson</strong>
+                            <p>Culinary Program Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta" id="get-involved">
+        <div class="container">
+            <h2>Join Us in Making a Difference</h2>
+            <p>There are many ways you can support our mission, from dining at our restaurant to volunteering your time.</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn">Make a Donation</a>
+                <a href="#" class="btn btn-secondary">Volunteer with Us</a>
+                <a href="#" class="btn">Book a Table</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Restaurant Name</h3>
+                    <p>123 Main Street<br>City, State 12345<br>Phone: (123) 456-7890</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm<br>
+                    Friday - Saturday: 11am - 11pm<br>
+                    Sunday: 10am - 9pm</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>NGO Partner</h3>
+                    <p>[NGO Name]<br>456 Charity Lane<br>City, State 12345<br>Phone: (123) 456-7890</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Our Menu</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Impact Reports</a></li>
+                        <li><a href="#">News & Events</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Restaurant Name & NGO Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

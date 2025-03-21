@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - FoodShare Connect</title>
+    <style>
+        :root {
+            --primary-green: #2e8b57;
+            --light-green: #8fbc8f;
+            --dark-green: #1e5631;
+            --accent-green: #3cb371;
+            --background-green: #f0f8f0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-green);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            margin: 30px 0;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            background-color: #e8f5e9;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        
+        .tab.active {
+            background-color: var(--primary-green);
+            color: white;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section {
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-row {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent-green);
+            outline: none;
+            box-shadow: 0 0 5px rgba(60, 179, 113, 0.3);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .checkbox-item input {
+            width: auto;
+        }
+        
+        .btn {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-green);
+        }
+        
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .benefits {
+            background-color: var(--light-green);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .benefits h3 {
+            color: var(--dark-green);
+            margin-top: 0;
+        }
+        
+        .benefits ul {
+            padding-left: 20px;
+        }
+        
+        .benefits li {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <h1>FoodShare Connect</h1>
+            </div>
+            <p>Connecting restaurants with NGOs to reduce food waste and feed communities</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('restaurant')">Restaurant Registration</div>
+            <div class="tab" onclick="switchTab('ngo')">NGO Registration</div>
+        </div>
+        
+        <div class="form-container">
+            <!-- Restaurant Registration Form -->
+            <div id="restaurant-form" class="form-section active">
+                <h2>Register Your Restaurant</h2>
+                <p>Join our network to donate excess food and make a difference in your community</p>
+                
+                <form>
+                    <div class="form-row">
+                        <label for="rest-name">Restaurant Name*</label>
+                        <input type="text" id="rest-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-address">Restaurant Address*</label>
+                        <input type="text" id="rest-address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-city">City*</label>
+                        <input type="text" id="rest-city" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-zip">Postal/Zip Code*</label>
+                        <input type="text" id="rest-zip" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-contact-name">Contact Person*</label>
+                        <input type="text" id="rest-contact-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-email">Email Address*</label>
+                        <input type="email" id="rest-email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-phone">Phone Number*</label>
+                        <input type="tel" id="rest-phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-type">Restaurant Type*</label>
+                        <select id="rest-type" required>
+                            <option value="">Select restaurant type</option>
+                            <option value="fast-food">Fast Food</option>
+                            <option value="casual-dining">Casual Dining</option>
+                            <option value="fine-dining">Fine Dining</option>
+                            <option value="cafe">Café</option>
+                            <option value="buffet">Buffet</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Food Types Available for Donation (select all that apply)*</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="food-prepared">
+                                <label for="food-prepared">Prepared Meals</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="food-produce">
+                                <label for="food-produce">Fresh Produce</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="food-baked">
+                                <label for="food-baked">Baked Goods</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="food-canned">
+                                <label for="food-canned">Canned/Packaged</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="food-dairy">
+                                <label for="food-dairy">Dairy</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-pickup-times">Preferred Pickup Times*</label>
+                        <select id="rest-pickup-times" required>
+                            <option value="">Select preferred time</option>
+                            <option value="morning">Morning (8 AM - 11 AM)</option>
+                            <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                            <option value="evening">Evening (5 PM - 8 PM)</option>
+                            <option value="closing">After Closing</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="rest-notes">Additional Notes</label>
+                        <textarea id="rest-notes" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="submit" class="btn">Register Restaurant</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- NGO Registration Form -->
+            <div id="ngo-form" class="form-section">
+                <h2>Register Your Non-Profit Organization</h2>
+                <p>Join our network to receive food donations and support your community</p>
+                
+                <form>
+                    <div class="form-row">
+                        <label for="ngo-name">Organization Name*</label>
+                        <input type="text" id="ngo-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-address">Address*</label>
+                        <input type="text" id="ngo-address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-city">City*</label>
+                        <input type="text" id="ngo-city" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-zip">Postal/Zip Code*</label>
+                        <input type="text" id="ngo-zip" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-tax-id">Tax ID / Charity Registration Number*</label>
+                        <input type="text" id="ngo-tax-id" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-mission">Organization Mission*</label>
+                        <textarea id="ngo-mission" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-contact-name">Contact Person*</label>
+                        <input type="text" id="ngo-contact-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-role">Role/Position*</label>
+                        <input type="text" id="ngo-role" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-email">Email Address*</label>
+                        <input type="email" id="ngo-email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-phone">Phone Number*</label>
+                        <input type="tel" id="ngo-phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-people-served">Approximate Number of People Served*</label>
+                        <select id="ngo-people-served" required>
+                            <option value="">Select range</option>
+                            <option value="less-50">Less than 50 per day</option>
+                            <option value="50-100">50-100 per day</option>
+                            <option value="100-250">100-250 per day</option>
+                            <option value="250-500">250-500 per day</option>
+                            <option value="500+">500+ per day</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label>Food Types Needed (select all that apply)*</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="need-prepared">
+                                <label for="need-prepared">Prepared Meals</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="need-produce">
+                                <label for="need-produce">Fresh Produce</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="need-baked">
+                                <label for="need-baked">Baked Goods</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="need-canned">
+                                <label for="need-canned">Canned/Packaged</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="need-dairy">
+                                <label for="need-dairy">Dairy</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-storage">Food Storage Capacity*</label>
+                        <select id="ngo-storage" required>
+                            <option value="">Select storage capacity</option>
+                            <option value="refrigeration">Refrigeration</option>
+                            <option value="freezer">Freezer</option>
+                            <option value="both">Both refrigeration and freezer</option>
+                            <option value="limited">Limited refrigeration</option>
+                            <option value="none">No refrigeration/freezer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-pickup">Can Your Organization Pick Up Donations?*</label>
+                        <select id="ngo-pickup" required>
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes, we can pick up donations</option>
+                            <option value="limited">Limited pickup capacity</option>
+                            <option value="no">No, we cannot pick up donations</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="ngo-notes">Additional Notes</label>
+                        <textarea id="ngo-notes" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="submit" class="btn">Register Organization</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h3>Benefits of Joining FoodShare Connect</h3>
+            <ul>
+                <li><strong>For Restaurants:</strong> Reduce food waste, receive tax benefits for donations, enhance corporate social responsibility, and connect with your community.</li>
+                <li><strong>For NGOs:</strong> Access consistent food donations, expand your organization's reach, and increase the variety of food available to those you serve.</li>
+                <li><strong>For Communities:</strong> Decrease food waste, support sustainable practices, and ensure food is distributed to those who need it most.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabId) {
+            // Reset all tabs and forms
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.form-section').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Activate selected tab and form
+            if (tabId === 'restaurant') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+                document.getElementById('restaurant-form').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+                document.getElementById('ngo-form').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

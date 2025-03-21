@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodShare - Connect, Donate, Impact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FFC107;
+            --light: #F5F5F5;
+            --dark: #333333;
+            --danger: #F44336;
+            --success: #8BC34A;
+            --info: #2196F3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #FFB300;
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        /* Login/Register Forms */
+        .auth-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .auth-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .auth-form h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .auth-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .user-type-select {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .user-type {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .user-type.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .user-type i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        /* Dashboard Styles */
+        .dashboard {
+            display: none;
+            padding: 2rem 0;
+        }
+        
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: calc(100vh - 100px);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #f0f7f0;
+            color: var(--primary);
+        }
+        
+        .sidebar-link i {
+            margin-right: 0.8rem;
+        }
+        
+        .main-content {
+            width: 100%;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-right: 1rem;
+        }
+        
+        .stat-icon.primary {
+            background-color: #e8f5e9;
+            color: var(--primary);
+        }
+        
+        .stat-icon.secondary {
+            background-color: #fff8e1;
+            color: var(--secondary);
+        }
+        
+        .stat-icon.info {
+            background-color: #e3f2fd;
+            color: var(--info);
+        }
+        
+        .stat-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .table-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th, .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .badge {
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .badge-success {
+            background-color: #e8f5e9;
+            color: var(--success);
+        }
+        
+        .badge-warning {
+            background-color: #fff8e1;
+            color: #FFA000;
+        }
+        
+        .badge-danger {
+            background-color: #ffebee;
+            color: var(--danger);
+        }
+        
+        /* Map Section */
+        .map-container {
+            height: 500px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        /* Food Form */
+        .add-food-form {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            padding: 4rem 0;
+            background-color: #e8f5e9;
+            text-align: center;
+        }
+        
+        .impact-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-stat {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 250px;
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                height: auto;
+                position: static;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>FoodShare</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="work.html">How It Works</a></li>
+                    <li><a href="impactpage.html">Impact</a></li>
+                    <li><a href="loginpage.html" id="login-btn">Login</a></li>
+                    <li><a href="register.html" class="btn btn-primary" id="register-btn">Register</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Connecting Surplus Food with Those Who Need It</h1>
+            <p>FoodShare bridges the gap between restaurants with surplus food and NGOs helping those in need. Together, we can reduce food waste and fight hunger.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="join-restaurant-btn">Join as Restaurant/Hotel</button>
+                <button class="btn btn-secondary" id="join-ngo-btn">Join as NGO</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Features</h2>
+                <p>Our platform makes food donation simple, efficient, and impactful</p>
+            </div>
+            <div class="feature-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Custom Dashboards</h3>
+                    <p>Tailored interfaces for restaurants and NGOs to manage donations efficiently</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Real-time Notifications</h3>
+                    <p>Instant alerts when food is available or pickups are scheduled</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Interactive Map</h3>
+                    <p>Easily locate nearby restaurants with surplus food available</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Food Safety Guidelines</h3>
+                    <p>Best practices to ensure safe food handling and donation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Impact Tracker</h3>
+                    <p>Measure your contribution to reducing waste and helping communities</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Smart Matching</h3>
+                    <p>Automated system connects restaurants with nearby NGOs based on needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Making food donation easy in just a few simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Register Your Account</h3>
+                    <p>Sign up as a restaurant/hotel or an NGO with a simple registration process</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>List Surplus Food</h3>
+                    <p>Restaurants can easily list available food items, quantities, and pickup times</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Matched</h3>
+                    <p>Our system automatically notifies nearby NGOs about available donations</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Schedule Pickup</h3>
+                    <p>NGOs can request pickups and coordinate directly with restaurants</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Track Impact</h3>
+                    <p>Monitor your contribution to reducing food waste and fighting hunger</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact So Far</h2>
+                <p>Together we're making a difference in communities and the environment</p>
+            </div>
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="impact-number" id="food-saved">5,280</div>
+                    <p>Kilograms of Food Saved</p>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" id="meals-provided">17,600</div>
+                    <p>Meals Provided</p>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" id="co2-reduced">12,400</div>
+                    <p>Kg of CO₂ Emissions Reduced</p>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number" id="partners">215</div>
+                    <p>Participating Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Forms -->
+    <div class="auth-container" id="auth-container">
+        <div class="auth-form">
+            <button class="close-btn" id="close-auth-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="register">Register</div>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="form-content" id="login-form">
+                <h2>Login to Your Account</h2>
+                <div class="user-type-select">
+                    <div class="user-type active" data-type="restaurant">
+                        <i class="fas fa-utensils"></i>
+                        <span>Restaurant</span>
+                    </div>
+                    <div class="user-type" data-type="ngo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>NGO</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" id="submit-login">Login</button>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="#" style="color: var(--primary);">Forgot Password?</a>
+                </p>
+            </div>
+            
+            <!-- Register Form -->
+            <div class="form-content" id="register-form" style="display: none;">
+                <h2>Create a New Account</h2>
+                <div class="user-type-select">
+                    <div class="user-type active" data-type="restaurant">
+                        <i class="fas fa-utensils"></i>
+                        <span>Restaurant</span>
+                    </div>
+                    <div class="user-type" data-type="ngo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>NGO</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register-name">Name</label>
+                    <input type="text" id="register-name" class="form-control" placeholder="Enter your name/organization name">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="register-phone">Phone Number</label>
+                    <input type="tel" id="register-phone" class="form-control" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="register-address">Address</label>
+                    <input type="text" id="register-address" class="form-control" placeholder="Enter your address">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" class="form-control" placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" class="form-control" placeholder="Confirm your password">
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" id="submit-register">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Restaurant Dashboard -->
+    <section class="dashboard" id="restaurant-dashboard">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="sidebar">
+                    <div class="logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>FoodShare</span>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#" class="sidebar-link active" data-section="overview">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section="add-food">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Add Food</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section="donations">
+                                <i class="fas fa-gift"></i>
+                                <span>Donations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-section="scheduled">
+                                <i class="fas fa-calendar-alt"></i>

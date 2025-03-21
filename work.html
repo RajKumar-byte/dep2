@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How NGOs & Restaurants Work Together | Partnership Model</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: #444;
+        }
+        
+        p {
+            margin-bottom: 1.2em;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            padding: 100px 0 70px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Introduction Section */
+        .introduction {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .intro-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #3498db;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        /* Models Section */
+        .models {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .model-card {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .model-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #666;
+        }
+        
+        .model-content {
+            padding: 25px;
+        }
+        
+        .model-content h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .benefit-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-item h3 {
+            margin-top: 0;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefit-item h3 span {
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        /* Case Studies Section */
+        .case-studies {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .case-study {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .case-study-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        
+        .case-study-title h3 {
+            margin: 0;
+            color: #3498db;
+        }
+        
+        .case-study-results {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .case-study-results h4 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-item {
+            text-align: center;
+        }
+        
+        .result-item h5 {
+            margin: 0;
+            font-size: 2rem;
+            color: #3498db;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .accordion {
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .accordion-header {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            display: none;
+        }
+        
+        .accordion-header.active + .accordion-content {
+            display: block;
+        }
+        
+        /* Steps to Start Section */
+        .steps {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .step-card h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>How NGOs & Restaurants Work Together</h1>
+            <p>Understanding the powerful collaboration model that creates sustainable impact while enhancing business value</p>
+        </div>
+    </header>
+    
+    <!-- Introduction Section -->
+    <section class="introduction">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>The Power of Partnership</h2>
+                    <p>When restaurants and non-governmental organizations (NGOs) join forces, they create a unique symbiotic relationship that benefits businesses, communities, and the environment. These partnerships harness the strengths of both entities: restaurants bring culinary expertise, physical space, and a steady stream of customers, while NGOs contribute community connections, impact measurement capabilities, and mission-driven expertise.</p>
+                    <p>These collaborations can take many forms, from meal donation programs and employment initiatives to sustainability projects and awareness campaigns. What makes them particularly powerful is that they create shared value – simultaneously generating business success and social impact.</p>
+                    <p>In this guide, we'll explore how these partnerships work, the various models they can follow, and the benefits they bring to all stakeholders involved.</p>
+                </div>
+                <div class="intro-image">
+                    <img src="/api/placeholder/600/400" alt="Restaurant and NGO representatives working together">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Collaboration Process</h2>
+                <p>How restaurants and NGOs establish and maintain effective partnerships</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Initial Connection</h3>
+                        <p>The partnership begins when a restaurant and an NGO identify aligned values and complementary capabilities. This connection may happen through networking events, mutual contacts, or direct outreach initiatives.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Needs Assessment</h3>
+                        <p>Both parties evaluate their respective needs, resources, and constraints. The restaurant may assess its capacity for donations, volunteer time, or space availability, while the NGO evaluates community needs and program requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Partnership Design</h3>
+                        <p>Together, they design a collaboration model that leverages their strengths and addresses identified needs. This includes determining program structure, donation mechanisms, staffing requirements, and marketing approaches.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Formalization</h3>
+                        <p>The partners establish a formal agreement outlining responsibilities, expectations, timelines, and measurement criteria. This may include legal agreements, memoranda of understanding, or other documentation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Implementation</h3>
+                        <p>The partnership launches its programs, which might include meal donations, training initiatives, awareness campaigns, or other collaborative activities. Staff from both organizations work together to execute planned activities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Measurement & Reporting</h3>
+                        <p>The partners track impact metrics, such as meals donated, individuals served, funds raised, or environmental benefits. The NGO typically leads measurement efforts, while the restaurant helps collect relevant data.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Communication & Marketing</h3>
+                        <p>Both organizations share impact stories with their respective audiences through social media, press releases, in-store displays, and other channels, raising awareness and encouraging participation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Refinement & Growth</h3>
+                        <p>Based on measurement results and stakeholder feedback, the partners continuously improve their programs and potentially expand their scope, reach, or impact over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Partnership Models Section -->
+    <section class="models">
+        <div class="container">
+            <div class="section-title">
+                <h2>Common Partnership Models</h2>
+                <p>Different ways restaurants and NGOs collaborate to create impact</p>
+            </div>
+            
+            <div class="models-grid">
+                <div class="model-card">
+                    <div class="model-image">🍽️</div>
+                    <div class="model-content">
+                        <h3>Meal Donation Program</h3>
+                        <p><strong>How it works:</strong> For each meal purchased by customers, the restaurant donates a meal (or portion of one) to individuals in need through the NGO's distribution network.</p>
+                        <p><strong>Example:</strong> A "Buy One, Give One" program where the restaurant donates one meal for every entree purchased on specified days.</p>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">💼</div>
+                    <div class="model-content">
+                        <h3>Employment Initiative</h3>
+                        <p><strong>How it works:</strong> The restaurant provides job training and employment opportunities to individuals from underserved communities, with the NGO handling recruitment, support services, and follow-up.</p>
+                        <p><strong>Example:</strong> A culinary apprenticeship program for youth from disadvantaged backgrounds or formerly homeless individuals.</p>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">🌱</div>
+                    <div class="model-content">
+                        <h3>Sustainable Sourcing</h3>
+                        <p><strong>How it works:</strong> The restaurant sources ingredients from community gardens, urban farms, or social enterprises supported by the NGO, creating economic opportunities and promoting local food systems.</p>
+                        <p><strong>Example:</strong> Purchasing produce from community gardens in food desert neighborhoods that are managed by the NGO.</p>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">💰</div>
+                    <div class="model-content">
+                        <h3>Fundraising Partnership</h3>
+                        <p><strong>How it works:</strong> The restaurant hosts special events or donation drives to raise funds for the NGO's programs, while the NGO provides impact stories and program expertise.</p>
+                        <p><strong>Example:</strong> Monthly "Dine for a Cause" nights where a percentage of all sales are donated to the NGO.</p>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">🎓</div>
+                    <div class="model-content">
+                        <h3>Educational Collaboration</h3>
+                        <p><strong>How it works:</strong> The restaurant and NGO collaborate on educational programs about nutrition, cooking, food systems, or sustainable practices, leveraging both organizations' expertise.</p>
+                        <p><strong>Example:</strong> Free cooking workshops for low-income families taught by restaurant chefs in NGO community spaces.</p>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">♻️</div>
+                    <div class="model-content">
+                        <h3>Waste Reduction Initiative</h3>
+                        <p><strong>How it works:</strong> The restaurant implements systems to reduce food waste, with the NGO helping to redistribute surplus food or convert food waste into compost for community gardens.</p>
+                        <p><strong>Example:</strong> An app-based system that alerts the NGO when the restaurant has surplus prepared food available for immediate collection and distribution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefits of Restaurant-NGO Partnerships</h2>
+                <p>How these collaborations create value for all stakeholders involved</p>
+            </div>
+            
+            <div class="benefits-container">
+                <div class="benefit-column">
+                    <h3>For Restaurants</h3>
+                    
+                    <div class="benefit-item">
+                        <h3><span>1</span> Enhanced Brand Reputation</h3>
+                        <p>Partnerships demonstrate social responsibility, helping restaurants differentiate themselves in a competitive market and build goodwill with customers who value businesses that give back.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>2</span> Customer Loyalty & Acquisition</h3>
+                        <p>Socially-conscious customers are more likely to choose and return to restaurants that support causes they care about, leading to increased traffic and repeat business.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>3</span> Employee Engagement</h3>
+                        <p>Staff morale and retention improve when employees feel their work contributes to a greater purpose, and participation in community programs provides development opportunities.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>4</span> Marketing Opportunities</h3>
+                        <p>Partnerships generate authentic stories that can be shared across marketing channels, earning media coverage and social media engagement that might otherwise be costly to obtain.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-column">
+                    <h3>For NGOs</h3>
+                    
+                    <div class="benefit-item">
+                        <h3><span>1</span> Expanded Resources</h3>
+                        <p>Restaurants provide food, space, expertise, and fundraising opportunities that allow NGOs to reach more people and enhance the quality of their programs.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>2</span> Increased Visibility</h3>
+                        <p>Partnerships with popular restaurants expose NGOs to new audiences who might not otherwise encounter their work, helping to build awareness and supporter bases.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>3</span> Business Expertise</h3>
+                        <p>NGOs gain access to business skills, operational knowledge, and market insights that can help them improve their own efficiency and effectiveness.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>4</span> Sustainable Funding</h3>
+                        <p>Restaurant partnerships can provide more reliable funding streams than traditional grants or donations, allowing for better long-term planning and program stability.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-column">
+                    <h3>For Communities</h3>
+                    
+                    <div class="benefit-item">
+                        <h3><span>1</span> Increased Access to Nutrition</h3>
+                        <p>Partnerships often focus on providing meals or food access to underserved populations, addressing immediate hunger needs and improving nutrition.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>2</span> Economic Opportunities</h3>
+                        <p>Employment programs and local sourcing initiatives create jobs, build skills, and generate economic activity in communities that may face barriers to opportunity.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>3</span> Environmental Benefits</h3>
+                        <p>Many partnerships address food waste, sustainable agriculture, or other environmental concerns, creating local ecological benefits and modeling solutions.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h3><span>4</span> Community Connection</h3>
+                        <p>Collaborative initiatives often bring diverse community members together around food, fostering social connections and strengthening neighborhood bonds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Case Studies Section -->
+    <section class="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Real-world examples of impactful restaurant-NGO partnerships</p>
+            </div>
+            
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="case-study-logo">
+                        🍜
+                    </div>
+                    <div class="case-study-title">
+                        <h3>Urban Kitchen & City Harvest Initiative</h3>
+                        <p>A farm-to-table restaurant partnered with a food security NGO to address hunger and food waste</p>
+                    </div>
+                </div>
+                
+                <p>Urban Kitchen, a popular farm-to-table restaurant, partnered with the City Harvest Initiative to create a comprehensive food recovery and distribution program. The restaurant implemented a sophisticated inventory management system to minimize food waste, and established protocols for safely donating surplus prepared meals and unused ingredients.</p>
+                
+                <p>City Harvest provided training for restaurant staff on safe food handling for donations, and created a dedicated pickup schedule using their volunteer network. They also helped the restaurant develop a composting system for inedible food waste, which was used in community gardens they operated.</p>
+                
+                <p>The partnership included a customer-facing component: diners could opt to add a "community meal" donation to their bill, which funded additional meal donations beyond just surplus food. Urban Kitchen prominently featured impact metrics on their menu and social media, showing how many meals had been donated to date.</p>
+                
+                <div class="case-study-results">
+                    <h4>Results After Two Years:</h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <h5>15,000+</h5>
+                            <p>Meals donated</p>
+                        </div>
+                        <div class="result-item">
+                            <h5>85%</h5>
+                            <p>Reduction in food waste</p>
+                        </div>
+                        <div class="result-item">
+                            <h5>$32,000</h5>
+                            <p>Customer donations raised</p>
+                        </div>
+                        <div class="result-item">
+                            <h5>22%</h5>
+                            <p>Increase in restaurant revenue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="case-study-logo">
+                        👨‍🍳
+                    </div>
+                    <div class="case-study-title">
+                        <h3>Fresh Start Bistro & Second Chance Foundation</h3>
+                        <p>An employment partnership providing culinary training to formerly incarcerated individuals</p>
+                    </div>
+                </div>
+                
+                <p>Fresh Start Bistro, a neighborhood café and restaurant, collaborated with the Second Chance Foundation to create a comprehensive employment program for formerly incarcerated individuals seeking to rebuild their lives. The foundation screened and referred candidates to the restaurant, provided case management support, and offered financial literacy and life skills training.</p>
+                
+                <p>The restaurant developed a structured 6-month training program that rotated participants through different stations in the kitchen and front-of-house, building both technical skills and soft skills. Senior staff served as mentors, and the restaurant created a clear pathway to permanent employment for successful program graduates.</p>
+                
+                <p>The partnership received support from a local workforce development grant that subsidized training wages for the first three months. The restaurant prominently shared the stories (with permission) of program graduates on their walls and website, creating powerful narratives about transformation and second chances.</p>
+                
+                <div class="case-study-results">
+                    <h4>Results After Three Years:</h4>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <h5>28</h5>
+                            <p>Program participants</p

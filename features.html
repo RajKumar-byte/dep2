@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Restaurant & NGO Partnership</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9f6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c5e1a;
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #4CAF50;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Feature Cards */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e8f5e9;
+        }
+        
+        .feature-icon i {
+            font-size: 40px;
+            color: #4CAF50;
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        /* Feature Highlights */
+        .feature-highlights {
+            padding: 80px 0;
+            background-color: #e8f5e9;
+        }
+        
+        .highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .highlight-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .highlight-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .highlight-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .highlight-item i {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .highlight-text h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+        
+        /* Interactive Features */
+        .interactive-features {
+            padding: 80px 0;
+        }
+        
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .interactive-item {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .interactive-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .interactive-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .interactive-item h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        /* Sustainable Practices Section */
+        .sustainable-practices {
+            padding: 80px 0;
+            background-color: #f1f8e9;
+        }
+        
+        .practices-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .practice-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #4CAF50;
+        }
+        
+        .practice-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .practice-icon i {
+            color: #4CAF50;
+            font-size: 30px;
+        }
+        
+        /* Technology Features */
+        .tech-features {
+            padding: 80px 0;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .tech-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s;
+        }
+        
+        .tech-card:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tech-icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #e8f5e9;
+            color: #4CAF50;
+            font-size: 30px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #388E3C;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c5e1a;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #8BC34A;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #8BC34A;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3e7d2a;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .highlight-container, .practices-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="container">
+            <h1>Features of Our Restaurant & NGO Partnership</h1>
+            <p>Discover how we're combining culinary excellence with social impact through innovative features and sustainable practices.</p>
+        </div>
+    </section>
+    
+    <!-- Core Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Features</h2>
+                <p>Our unique approach combines the best of restaurant hospitality with impactful community initiatives.</p>
+            </div>
+            
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>🍽️</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Farm-to-Table Dining</h3>
+                        <p>We source ingredients directly from local farmers, reducing our carbon footprint and supporting the local economy. Each dish tells a story of sustainability and community connection.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>♻️</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Zero-Waste Initiative</h3>
+                        <p>Our comprehensive waste reduction program ensures that food scraps are composted, packaging is biodegradable, and resources are used efficiently throughout our operations.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>👨‍🍳</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Culinary Training Program</h3>
+                        <p>We provide professional culinary training to underserved community members, creating pathways to employment in the food service industry.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>🌱</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Community Gardens</h3>
+                        <p>Our network of community gardens produces fresh ingredients for our kitchen while teaching sustainable agriculture practices to local residents.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>🍲</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Meal Donation Program</h3>
+                        <p>For every meal purchased, we donate a nutritious meal to someone in need through our network of community partners and food banks.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i>📱</i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Impact Transparency</h3>
+                        <p>Our digital dashboard shows real-time data on meals donated, waste diverted, and community impact, allowing customers to see the difference they're making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Feature Highlights Section -->
+    <section class="feature-highlights">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Our unique model offers benefits to both diners and the community</p>
+            </div>
+            
+            <div class="highlight-container">
+                <div class="highlight-image">
+                    <img src="/api/placeholder/600/400" alt="Restaurant and NGO Partnership">
+                </div>
+                
+                <div class="highlight-content">
+                    <div class="highlight-item">
+                        <i>✓</i>
+                        <div class="highlight-text">
+                            <h3>Dining with Purpose</h3>
+                            <p>Every meal you enjoy contributes directly to our community initiatives, turning your dining experience into a force for good.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <i>✓</i>
+                        <div class="highlight-text">
+                            <h3>Transparent Supply Chain</h3>
+                            <p>Know exactly where your food comes from with our digital menu that shows the source of each ingredient and its environmental impact.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <i>✓</i>
+                        <div class="highlight-text">
+                            <h3>Educational Workshops</h3>
+                            <p>Join our regular workshops on sustainable cooking, nutrition, and gardening, led by our chefs and community experts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <i>✓</i>
+                        <div class="highlight-text">
+                            <h3>Volunteer Opportunities</h3>
+                            <p>Get hands-on with our community projects through organized volunteer days at our gardens, kitchens, and food distribution centers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Features Section -->
+    <section class="interactive-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Interactive Features</h2>
+                <p>Engage with our mission through these digital and in-person experiences</p>
+            </div>
+            
+            <div class="interactive-grid">
+                <div class="interactive-item">
+                    <div class="interactive-icon">📊</div>
+                    <h3>Impact Dashboard</h3>
+                    <p>Track our collective impact in real-time through our digital dashboard displaying meals donated, waste diverted, and community engagement metrics.</p>
+                </div>
+                
+                <div class="interactive-item">
+                    <div class="interactive-icon">📱</div>
+                    <h3>Mobile App</h3>
+                    <p>Our app allows you to reserve tables, track your personal impact, join volunteer events, and earn rewards for sustainable dining choices.</p>
+                </div>
+                
+                <div class="interactive-item">
+                    <div class="interactive-icon">🗺️</div>
+                    <h3>Ingredient Journey Map</h3>
+                    <p>Scan QR codes on our menu to see the journey of ingredients from farm to table, including farmer profiles and sustainability practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sustainable Practices Section -->
+    <section class="sustainable-practices">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sustainable Practices</h2>
+                <p>Our commitment to environmental stewardship is integrated into every aspect of our operation</p>
+            </div>
+            
+            <div class="practices-container">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <i>🔄</i>
+                    </div>
+                    <h3>Closed-Loop System</h3>
+                    <p>Our kitchen operates on a closed-loop system where food waste is composted and returned to our community gardens, creating a regenerative cycle.</p>
+                </div>
+                
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <i>💧</i>
+                    </div>
+                    <h3>Water Conservation</h3>
+                    <p>Advanced water-saving technologies and rainwater harvesting systems reduce our water usage by 70% compared to traditional restaurants.</p>
+                </div>
+                
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <i>🔌</i>
+                    </div>
+                    <h3>Renewable Energy</h3>
+                    <p>Our facility is powered by 100% renewable energy through solar panels and participation in community solar programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technology Features Section -->
+    <section class="tech-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technology Features</h2>
+                <p>Innovative technologies that enhance both our dining and impact experiences</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3>Smart Inventory System</h3>
+                    <p>AI-powered inventory management that predicts usage patterns to minimize waste and ensure optimal ingredient freshness.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">📈</div>
+                    <h3>Impact Analytics</h3>
+                    <p>Sophisticated data analysis tools that measure and visualize our environmental and social impact across all initiatives.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">📲</div>
+                    <h3>Digital Donation Platform</h3>
+                    <p>Secure online platform allowing diners and supporters to contribute directly to specific community programs.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon">🔄</div>
+                    <h3>Circular Economy Software</h3>
+                    <p>Proprietary software that tracks resources through our entire operation to identify and eliminate waste points.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Our Features Firsthand</h2>
+            <p>Join us for a meal or volunteer experience and see how we're redefining the relationship between restaurants and community impact.</p>
+            <a href="#" class="btn">Book a Table</a>
+            <a href="#" class="btn btn-outline">Volunteer With Us</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Restaurant Name</h3>
+                    <p>123 Sustainable Street<br>Eco City, ST 12345<br>Phone: (123) 456-7890</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm<br>
+                    Friday - Saturday: 11am - 11pm<br>
+                    Sunday: 10am - 9pm</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>NGO Partner</h3>
+                    <p>Green Impact Organization<br>456 Community Ave<br>Eco City, ST 12345<br>Phone: (123) 456-7890</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Our Menu</a></li>
+                        <li><a href="#">Impact Reports</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Community Gardens</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Restaurant Name & Green Impact Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
